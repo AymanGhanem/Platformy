@@ -1,0 +1,57 @@
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDASOVKFMUHNH4HGTMXY",
+        "arn": "arn:aws:iam::168934335758:user/AymanG",
+        "accountId": "168934335758",
+        "accessKeyId": "AKIASOVKFMUHCJH66ZXF",
+        "userName": "AymanG"
+    },
+    "eventTime": "2022-05-03T17:08:52Z",
+    "eventSource": "ec2.amazonaws.com",
+    "eventName": "StopInstances",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "8.41.6.60",
+    "userAgent": "Boto3/1.22.5 Python/3.8.10 Windows/8.1 Botocore/1.25.5",
+    "requestParameters": {
+        "instancesSet": {
+            "items": [
+                {
+                    "instanceId": "i-0e6ec0049e631c9e5"
+                }
+            ]
+        },
+        "force": false
+    },
+    "responseElements": {
+        "requestId": "a5f3ee6f-4374-41bb-b408-e61ffa0aba21",
+        "instancesSet": {
+            "items": [
+                {
+                    "instanceId": "i-0e6ec0049e631c9e5",
+                    "currentState": {
+                        "code": 64,
+                        "name": "stopping"
+                    },
+                    "previousState": {
+                        "code": 16,
+                        "name": "running"
+                    }
+                }
+            ]
+        }
+    },
+    "requestID": "a5f3ee6f-4374-41bb-b408-e61ffa0aba21",
+    "eventID": "a04a32c3-cb48-458c-8a04-ae005cb5768a",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "168934335758",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.2",
+        "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+        "clientProvidedHostHeader": "ec2.us-east-1.amazonaws.com"
+    }
+}

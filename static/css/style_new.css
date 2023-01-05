@@ -1,0 +1,27 @@
+#video
+{
+    position: fixed ;
+    min-width : 100% ;
+    min-height : 100% ;
+    z-index: -10 ;
+}
+
+.card-text{
+    color: azure;
+}
+
+.Running{
+    color: rgb(49, 236, 2);
+}
+
+.Terminated, .Shutting-down, .Stopping, .Stopped {
+    color: #ff4617ef;
+}
+
+.Available{
+    color: rgb(0, 247, 255);
+}
+
+.Pending{
+    color: rgb(255, 255, 51);
+}

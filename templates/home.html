@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_new.css' %}">
+    <title>Platformy - Home Page</title>
+</head>
+<body>
+    <video muted loop autoplay id = "video">
+        <source src = "{% static 'images/Nature Themed Sky with Animated Clouds Background - Free Video Footage.mp4' %}" type = "video/mp4" />
+    </video>
+    <div style="padding: 10px 0px;"></div>
+    <h1 class="text-dark" style="text-align: center; letter-spacing: 10px;font-size: 60px;">Platformy</h1>
+    <h4 class="text-dark" style="text-align: center; letter-spacing: 1px;font-size: 20px;">User email: {{email}}</h4>
+    <div style="text-align: center;"><a href="" class="btn btn-danger"  id="logout_button" onclick="clickLogout(event)">Logout</a></div>
+    <div style="padding: 30px 0px"></div>
+    <div class="row">
+        {% for application in available_applications %}
+            <div class="col-md-4" style="padding: 0px 40px;">
+                <div class="card mb-2">
+                    <img class="card-img-top" src="{{application.thumbnail.url}}" width = "90px" height = "200px">
+                    <span class= "badge rounded-pill bg-dark Available" style = "position: absolute; top :10px ; left : 10px;" id="state-{{application.id}}">Available</span>
+                    <div class="card-body bg-dark">
+                        <h5 class="card-title text-warning">{{ application.name }}</h5>
+                        <p class="card-text">{{ application.description|slice:140 }}..</p>
+                        <a href="" class="btn btn-primary" id="start-{{ application.id }}" onclick="start(event)" value="{{application.id}}"> 
+                            Start
+                        </a>
+                        <a href="" class="btn btn-warning" style="visibility: hidden;" id="connect-{{ application.id}}" onclick="connect(event)" value="{{application.id}}">
+                            Connect
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% for service in services %}
+            <div class="col-md-4" style="padding: 0px 40px;">
+                <div class="card mb-2">
+                    <img class="card-img-top" src="{{service.application.thumbnail.url}}" width = "90px" height = "200px">
+                    <span class="badge rounded-pill bg-dark {{ service.state }}" style = "position: absolute; top :10px ; left : 10px;" id=state-{{service.application.id}}>{{ service.state }}</span>
+                    <div class="card-body bg-dark">
+                        <h5 class="card-title text-warning">{{ service.application.name }}</h5>
+                        <p class="card-text">{{ service.application.description|slice:140 }}..</p>
+                        <a href="" class="btn btn-danger" id="stop-{{ service.application.id }}" onclick="stop(event)" value="{{service.application.id}}"> 
+                            Stop
+                        </a>
+                        <a href="" class="btn btn-warning" style="visibility: display;" id="connect-{{ service.application.id }}" onclick="connect(event)" value="{{service.application.id}}">
+                            Connect
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/user-management.js' %}"></script>
+</body>
+</html>
